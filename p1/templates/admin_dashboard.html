@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Default Button Styles */
+        .present-btn, .absent-btn {
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .present-btn {
+            background-color: #28a745; /* Green */
+            color: white;
+        }
+        .absent-btn {
+            background-color: #dc3545; /* Red */
+            color: white;
+        }
+
+        /* Active State */
+        .selected-present {
+            background-color: #218838 !important; /* Darker Green */
+        }
+        .selected-absent {
+            background-color: #c82333 !important; /* Darker Red */
+        }
+        .container{
+            width: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📋 Admin Dashboard - Mark Attendance</h2>
+
+        <!-- Select Date -->
+        <label for="attendanceDate">Select Date:</label>
+        <input type="date" id="attendanceDate">
+
+        <!-- Select Course -->
+         <br>
+        <label for="courseSelect">Select Course:</label>
+        <select id="courseSelect">
+            <option value="">-- Select Course --</option>
+            <option value="Operating System">Operating System</option>
+            <option value="IT Network Security">IT Network Security</option>
+            <option value="Machine Learning">Machine Learning</option>
+            <option value="IOT">IOT</option>
+            <option value="Unstructured Database">Unstructured Database</option>
+        </select>
+
+        <!-- Students List -->
+        <ul id="studentsList">
+            {% for student in students %}
+            <li>
+                <strong>{{ student.roll_number }} - {{ student.name }} (Sem {{ student.semester }})</strong>
+                <div>
+                    <button class="present-btn" onclick="selectAttendance(this, '{{ student.name }}', '{{ student.roll_number }}', 'Present')">Present</button>
+                    <button class="absent-btn" onclick="selectAttendance(this, '{{ student.name }}', '{{ student.roll_number }}', 'Absent')">Absent</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Buttons -->
+        <button onclick="submitAttendance()">Submit Attendance</button>
+        <button onclick="window.location.href='/all_attendance'">View All Attendance</button>
+        <button onclick="window.location.href='/admin_logout'">Logout</button>
+    </div>
+
+    <script>
+        let attendanceRecords = [];
+
+        function selectAttendance(button, name, roll_number, status) {
+            const course = document.getElementById("courseSelect").value;
+            if (!course) {
+                alert("Please select a course first.");
+                return;
+            }
+
+            const today = document.getElementById("attendanceDate").value;
+            if (!today) {
+                alert("Please select a date.");
+                return;
+            }
+
+            // Check if student already exists in the records
+            const index = attendanceRecords.findIndex(record => record.roll_number === roll_number);
+            if (index !== -1) {
+                attendanceRecords[index].status = status; // Update status
+            } else {
+                attendanceRecords.push({ name, roll_number, date: today, course, status });
+            }
+
+            // Change button colors
+            let parentDiv = button.parentElement;
+            let presentBtn = parentDiv.querySelector(".present-btn");
+            let absentBtn = parentDiv.querySelector(".absent-btn");
+
+            if (status === "Present") {
+                presentBtn.classList.add("selected-present");
+                absentBtn.classList.remove("selected-absent");
+            } else {
+                absentBtn.classList.add("selected-absent");
+                presentBtn.classList.remove("selected-present");
+            }
+        }
+
+        function submitAttendance() {
+            if (attendanceRecords.length === 0) {
+                alert("No attendance records selected.");
+                return;
+            }
+
+            fetch('/mark_attendance', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(attendanceRecords)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || data.error);
+                location.reload(); // Refresh the page after submission
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>

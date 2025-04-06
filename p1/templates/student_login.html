@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+        .container {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s ease-in-out;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: linear-gradient(to right, #ff512f, #f09819);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Student Logo" class="logo">
+        <h2>Student Login</h2>
+        <p>Enter your roll number to continue</p>
+        <form method="POST">
+            <label for="roll_number">Roll Number:</label>
+            <input type="text" name="roll_number" placeholder="Enter your Roll Number" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

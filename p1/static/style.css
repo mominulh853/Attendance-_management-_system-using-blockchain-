@@ -1,0 +1,222 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.container {
+    /* width: 300px; */
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+p {
+    font-size: 18px;
+}
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #292942;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+    color: #ffcc00;
+}
+
+/* Inputs */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+/* Students List */
+#studentsList {
+    list-style: none;
+    padding: 0;
+}
+
+#studentsList li {
+    background: #34344a;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Default styles */
+.present-btn {
+    background: #28a745; /* Default green */
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.absent-btn {
+    background: #dc3545; /* Default red */
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+/* New styles when clicked */
+.selected-present {
+    background: #ffcc00 !important; /* Yellow for present */
+    color: black !important;
+}
+
+.selected-absent {
+    background: #dc3545 !important; /* Red for absent */
+    color: white !important;
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #292942;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+    color: #ffcc00;
+}
+
+/* Input & Select Fields */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    background: #444;
+    color: white;
+}
+
+/* Students List */
+#studentsList {
+    list-style: none;
+    padding: 0;
+}
+
+#studentsList li {
+    background: #34344a;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.present-btn {
+    background: #28a745;
+    color: white;
+}
+
+.present-btn:hover {
+    background: #218838;
+}
+
+.absent-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.absent-btn:hover {
+    background: #c82333;
+}
+
+button:last-child {
+    background: #ffcc00;
+    color: black;
+}
+
+button:last-child:hover {
+    background: #e6b800;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}

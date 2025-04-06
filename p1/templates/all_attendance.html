@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Attendance Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .table{
+            display: flex;
+            justify-content: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h2>All Student Attendance Records</h2>
+<div class="table">
+<table border="1">
+    <tr>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Course</th>
+        <th>Status</th>
+    </tr>
+    {% for record in attendance_records %}
+    <tr>
+        <td>{{ record.roll_number }}</td>
+        <td>{{ record.name }}</td>
+        <td>{{ record.date }}</td>
+        <td>{{ record.course }}</td>
+        <td>{{ record.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<button onclick="window.location.href='/admin_dashboard'">Back to Dashboard</button>
+</body>
+</html>

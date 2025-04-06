@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container{
+            width: 250px;
+        }
+        .t1{
+            width: 300px;
+            
+            
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ student.name }}</h2>
+        <p><strong>Roll Number:</strong> {{ student.roll_number }}</p>
+
+        <h3>Your Attendance Records</h3>
+        <div class="t1">
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Course</th>
+                <th>Status</th>
+            </tr>
+            
+            {% for record in attendance_records %}
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.course }}</td>
+                <td>{{ record.status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+       </div>
+        <button onclick="window.location.href='/logout'">Logout</button>
+    </div>
+</body>
+</html>
